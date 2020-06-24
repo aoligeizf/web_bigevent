@@ -11,6 +11,8 @@ $(function () {
   })
   // 从layui中获取form对象
   var form = layui.form
+  // 导入layer
+  var layer = layui.layer
   // 通过form.verify() 函数自定义校验规则
   form.verify({
     // 自定义了一个焦作pwd的校验规则
@@ -36,8 +38,6 @@ $(function () {
       username: $('#form_reg [name=username]').val(),
       password: $('#form_reg [name=password]').val()
     }
-    // 导入layer
-    var layer = layui.layer
     // 发起Ajax的post请求
     $.ajax({
       type: 'POST',
@@ -58,8 +58,7 @@ $(function () {
   $('#form_login').on('submit', function (e) {
     // 阻止默认行为
     e.preventDefault()
-    // 导入layer
-    var layer = layui.layer
+    
     $.ajax({
       type: 'POST',
       url: '/api/login',
